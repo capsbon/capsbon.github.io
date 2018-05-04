@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang=""><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>windows下如何创建Django应用 | capsbon的博客</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">windows下如何创建Django应用</h1><a id="logo" href="/.">capsbon的博客</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">windows下如何创建Django应用</h1><div class="post-meta">Mar 1, 2018<span> | </span><span class="category"><a href="/categories/Python/">Python</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2018/03/01/windows下如何创建Django应用/" href="/2018/03/01/windows下如何创建Django应用/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>由于之前关于Python的Web框架只接触过flask,正好这次需要用到Django来完成项目，因此记录下使用过程，若有错误，希望不吝赐教。</p>
+<p>1.安装Django</p>
+<p>前提是机器上已经安装了Python和pip(啪，还用你说吗)</p>
+<p>然后执行pip install django即可(需要科学上网环境，否则可能安装失败)</p>
+<p>验证是否安装成功方法：</p>
+<p>进入python环境后</p>
+<p>>&gt;&gt;import django<br>>&gt;&gt;print(django.get_version())<br>2.0.2</p>
+<p>正确输出了django的版本号，代表安装成功。</p>
+<p>2.创建Django项目</p>
+<p>为了保证不同项目之间依赖包不冲突，我们需要使用Python的虚拟环境，需要安装virtualenv</p>
+<p>pip install virtualenv</p>
+<p>执行</p>
+<p>virtualenv venv</p>
+<p>即创建了一个名为venv的文件夹(虚拟环境)</p>
+<p>执行 venv\Scripts\activate 即可进入虚拟环境</p>
+<p>接下来我们需要运行一些Django自带的脚本，它会生成一些文件夹及文件，在我们的项目中需要使用到它们。</p>
+<p>(venv) E:\Maximum&gt;django-admin startproject mysite .</p>
+<p>注意不要忘记最后的小数点，它告诉脚本会将Django自动安装到当前目录中</p>
+<p>此时我们的目录结构应该是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Maximum</span><br><span class="line">├───manage.py</span><br><span class="line">└───venv</span><br><span class="line">└───mysite</span><br><span class="line">        settings.py</span><br><span class="line">        urls.py</span><br><span class="line">        wsgi.py</span><br><span class="line">        __init__.py</span><br></pre></td></tr></table></figure>
+<p><code>manage.py</code> 是一个帮助管理站点的脚本。在它的帮助下我们将能够在我们的计算机上启动一个 web 服务器，而无需安装任何东西。</p>
+<p><code>settings.py</code> 文件包含的您的网站的配置数据。</p>
+<p><code>urls.py</code> 文件包含该 Django 项目的 URL 声明; 一份由 Django 驱动的网站”目录”。</p>
+<p><code>__init__</code> 一个空文件，告诉 Python 该目录是一个 Python 包。</p>
+<p><code>wsgi.py</code> 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目。</p>
+<p>3.启动Django</p>
+<p>进入到项目所在目录，命令行下执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
+<p>访问<a href="http://127.0.0.1:8000/" target="_blank" rel="noopener">http://127.0.0.1:8000/</a></p>
+<p>出现’The install worked successfully! Congratulations!’字样代表我们的Django项目已成功运行</p>
+<p>好了，安装创建一个最简单的Django应用就到此结束了。</p>
+</div><div class="tags"><a href="/tags/Django/">Django</a></div><div class="post-nav"><a href="/2018/03/02/使用Python批量替换多个文件中的字符/" class="pre">使用Python批量替换多个文件中的字符</a><a href="/2018/02/27/Python中is和==的区别/" class="next">Python中is和==的区别</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'capsbon';
+var disqus_identifier = '2018/03/01/windows下如何创建Django应用/';
+var disqus_title = 'windows下如何创建Django应用';
+var disqus_url = 'http://wangzhigang.org/2018/03/01/windows下如何创建Django应用/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//capsbon.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ruby/">Ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/problems/">problems</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/Decorator/" style="font-size: 15px;">Decorator</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/problems/" style="font-size: 15px;">problems</a> <a href="/tags/NEO4J/" style="font-size: 15px;">NEO4J</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/args/" style="font-size: 15px;">args</a> <a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/Fibonacci/" style="font-size: 15px;">Fibonacci</a> <a href="/tags/regex/" style="font-size: 15px;">regex</a> <a href="/tags/shadowsocks/" style="font-size: 15px;">shadowsocks</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/netSpeedMonitor/" style="font-size: 15px;">netSpeedMonitor</a> <a href="/tags/I-O/" style="font-size: 15px;">I/O</a> <a href="/tags/Euler/" style="font-size: 15px;">Euler</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/04/同步与异步阻塞与非阻塞/">同步与异步阻塞与非阻塞的作用及区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/28/PyCharm中各个调试按钮含义/">PyCharm中各个调试按钮含义</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/28/ruby中1和$1的区别/">ruby中\1和$1的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/25/Ruby正则表达式中替换字符串的几种方法/">Ruby正则表达式中替换字符串的几种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/正则表达式学习笔记/">正则表达式学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/21/如何理解Python中的蓝图/">如何理解Python中的蓝图</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/19/libcurlc错误/">Protocol https not supported or disabled in libcurl错误</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/19/常用的git命令/">常用的git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/19/一行ruby代码新建并写入内容至文件/">一行ruby代码新建并写入内容至文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/19/Windows下生成树状目录命令/">Windows下生成树状目录命令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//capsbon.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">capsbon的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
