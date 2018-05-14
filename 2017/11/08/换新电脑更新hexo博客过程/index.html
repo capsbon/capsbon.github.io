@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang=""><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>换新电脑更新hexo博客过程 | capsbon的博客</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">换新电脑更新hexo博客过程</h1><a id="logo" href="/.">capsbon的博客</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">换新电脑更新hexo博客过程</h1><div class="post-meta">Nov 8, 2017<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2017/11/08/换新电脑更新hexo博客过程/" href="/2017/11/08/换新电脑更新hexo博客过程/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>新电脑下更新hexo博客<br>1.安装git<br>在<a href="https://git-scm.com/" target="_blank" rel="noopener">git</a>下载并安装git</p>
+<p>2.生产SSH密钥<br>打开git bash，输入 </p>
+<p>ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“ </p>
+<p>其中<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>是你自己的邮件地址</p>
+<p>然后一直回车。</p>
+<p>登陆github，</p>
+<p>找到Settings,点击 SSH and GPG keys </p>
+<p>然后点击new SSH key</p>
+<p>Title任意</p>
+<p>Key内容粘贴公钥id_rsa.pub文件里的内容</p>
+<p>点击Add SSH key，输入密码确认完即可</p>
+<p>3.克隆自己的库到本地</p>
+<p>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:capsbon/capsbon.github.io.git</p>
+<p>切换分支到hexo</p>
+<p>git checkout hexo</p>
+<p>4.安装nodejs</p>
+<p>去<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a>下载并安装node.js</p>
+<p>5.安装hexo，</p>
+<p>依次执行</p>
+<p>npm install -g hexo-cli</p>
+<p>npm install hexo-deployer-git –save</p>
+<p>因为我的主题<a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="noopener">maupassant-hexo</a>的原因，还需要运行以下命令</p>
+<p>npm install <a href="mailto:hexo-renderer-jade@0.3.0" target="_blank" rel="noopener">hexo-renderer-jade@0.3.0</a> –save</p>
+<p>npm install hexo-renderer-sass –save</p>
+<p>6.远程部署</p>
+<p>git config –global user.email “<a href="mailto:1147274920@qq.com" target="_blank" rel="noopener">1147274920@qq.com</a>“<br>git config –global user.name “capsbon”</p>
+<p>执行hexo s -g 启动本地服务，查看效果</p>
+<p>hexo d -g 部署到github上</p>
+<p>注意！！！</p>
+<p>hexo–d部署失败 出现<br>fatal: in unpopulated submodule ‘.deploy_git’<br>将.deploy_git文件夹删掉重新hexo g;hexo d即可</p>
+<p>终极解决办法：<br>在所建的hexo分支下新建一个.gitignore文件<br>在里面添加.deploy_*<br>在上传的时候就会自动忽略deplot_git文件夹</p>
+<p>hexo执行命令时总是出现node:9976) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.<br>提示信息<br>注释掉node_modules\hexo-fs\lib\fs.js中<br>第718行exports.SyncWriteStream = fs.SyncWriteStream;就行了</p>
+</div><div class="tags"><a href="/tags/hexo/">hexo</a></div><div class="post-nav"><a href="/2017/11/10/hexo备份到github上/" class="pre">hexo内容备份到github</a><a href="/2017/11/08/netSpeedMonitor使用指南/" class="next">netSpeedMonitor使用指南</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'capsbon';
+var disqus_identifier = '2017/11/08/换新电脑更新hexo博客过程/';
+var disqus_title = '换新电脑更新hexo博客过程';
+var disqus_url = 'http://wangzhigang.org/2017/11/08/换新电脑更新hexo博客过程/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//capsbon.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cpp/">Cpp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ruby/">Ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/problems/">problems</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/Decorator/" style="font-size: 15px;">Decorator</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Leetcode/" style="font-size: 15px;">Leetcode</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/NEO4J/" style="font-size: 15px;">NEO4J</a> <a href="/tags/problems/" style="font-size: 15px;">problems</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/args/" style="font-size: 15px;">args</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Fibonacci/" style="font-size: 15px;">Fibonacci</a> <a href="/tags/regex/" style="font-size: 15px;">regex</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/shadowsocks/" style="font-size: 15px;">shadowsocks</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/netSpeedMonitor/" style="font-size: 15px;">netSpeedMonitor</a> <a href="/tags/I-O/" style="font-size: 15px;">I/O</a> <a href="/tags/Euler/" style="font-size: 15px;">Euler</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/10/Centos下git的安装和使用过程记录/">Centos下git的安装和使用过程记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/使用Python解决帝国时代2输入秘籍问题/">使用Python解决帝国时代2输入秘籍问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/04/同步与异步阻塞与非阻塞/">同步与异步阻塞与非阻塞的作用及区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/28/PyCharm中各个调试按钮含义/">PyCharm中各个调试按钮含义</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/28/ruby中1和$1的区别/">ruby中\1和$1的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/25/Ruby正则表达式中替换字符串的几种方法/">Ruby正则表达式中替换字符串的几种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/22/正则表达式学习笔记/">正则表达式学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/21/如何理解Python中的蓝图/">如何理解Python中的蓝图</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/19/libcurlc错误/">Protocol https not supported or disabled in libcurl错误</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/19/常用的git命令/">常用的git命令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//capsbon.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">capsbon的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
