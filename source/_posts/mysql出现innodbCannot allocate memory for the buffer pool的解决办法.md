@@ -2,7 +2,7 @@
 title: 'mysql出现innodb:Cannot allocate memory for the buffer pool的解决办法'
 date: 2018-03-04 23:10:48
 tags: 
-categories: 数据库
+categories: DataBase
 ---
 最近在做一个私人的Django项目，做完后打算放在自己的服务器上跑下，刚开始都
 没什么问题，后来又想学习下docker,于是又在这台服务器上装了docker,然后就发现

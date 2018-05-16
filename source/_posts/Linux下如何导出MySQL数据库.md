@@ -2,7 +2,7 @@
 title: Linux下如何导出MySQL数据库
 date: 2018-03-04 23:57:49
 tags: Linux
-categories: 数据库
+categories: DataBase
 ---
 
 命令行下执行

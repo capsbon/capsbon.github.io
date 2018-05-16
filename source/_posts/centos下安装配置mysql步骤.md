@@ -4,7 +4,7 @@ date: 2018-01-27 17:13:28
 tags: 
 - MySQL
 - Linux
-categories: 数据库
+categories: DataBase
 ---
 
 1.下载安装mysql源

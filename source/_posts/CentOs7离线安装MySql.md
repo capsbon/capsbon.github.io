@@ -2,7 +2,7 @@
 title: CentOs7离线安装MySql
 date: 2018-03-12 23:46:05
 tags:
-categories: 数据库
+categories: DataBase
 ---
 
 1.下载安装mysql

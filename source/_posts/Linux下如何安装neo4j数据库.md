@@ -2,7 +2,7 @@
 title: Linux下如何安装neo4j数据库
 date: 2018-01-16 23:35:20
 tags: NEO4J
-categories: 数据库
+categories: DataBase
 ---
 运行neo4j前需要先安装JDK8
 

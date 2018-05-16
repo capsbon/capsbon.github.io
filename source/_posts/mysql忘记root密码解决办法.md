@@ -2,7 +2,7 @@
 title: mysql忘记root密码解决办法
 date: 2018-03-13 01:01:08
 tags:
-categories: 数据库
+categories: DataBase
 ---
 
 修改MySQL的登录设置： 

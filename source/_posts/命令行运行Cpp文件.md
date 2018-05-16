@@ -2,7 +2,7 @@
 title: 命令行运行Cpp文件
 date: 2018-01-23 22:28:11
 tags: 
-categories: C++
+categories: Cpp
 ---
 
 本篇文章主要介绍如何在命令行下运行cpp文件，当然前提是你安装了vs2017。下面的步骤是在win10系统下进行的
